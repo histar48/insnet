@@ -3,6 +3,8 @@ package com.insutil.insnet.memer.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,7 @@ import com.insutil.insnet.memer.model.Member;
 import com.insutil.insnet.memer.repository.JdbcMemberRepository;
 
 @Service
+@Transactional
 public class MemberService {
 	
 	@Autowired

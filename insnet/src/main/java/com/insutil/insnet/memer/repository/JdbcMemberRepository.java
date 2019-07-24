@@ -19,9 +19,7 @@ public class JdbcMemberRepository implements MemberRepository {
 	@Override
 	public Optional<List<Member>> findAll() {
 		String query = "SELECT id_user as username FROM tn_qa_user";
-		Optional<List<Member>> result = 
-				Optional.ofNullable(jdbcTemplate.query(query, new BeanPropertyRowMapper<Member>(Member.class)));
-		return null;
+		return Optional.ofNullable(jdbcTemplate.query(query, new BeanPropertyRowMapper<Member>(Member.class)));
 	}
 	
 }
