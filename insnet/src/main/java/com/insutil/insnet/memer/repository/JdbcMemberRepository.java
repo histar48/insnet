@@ -16,6 +16,7 @@ public class JdbcMemberRepository implements MemberRepository {
 	@Autowired
     private JdbcTemplate jdbcTemplate;
 	
+	
 	@Override
 	public Optional<List<Member>> findAll() {
 		String query = "SELECT id_user as username FROM tn_qa_user";
