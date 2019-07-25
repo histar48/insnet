@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.insutil.insnet.common.exceptions.DataNotFoundedException;
-import com.insutil.insnet.memer.model.Member;
+import com.insutil.insnet.memer.model.MemberVO;
 import com.insutil.insnet.memer.repository.JdbcMemberRepository;
 
 @Service
@@ -21,13 +21,13 @@ public class MemberService {
 	@Autowired
 	JdbcMemberRepository repo;
 	
-	public List<Member> getMemberList() throws DataNotFoundedException {
-		Optional<List<Member>> result = repo.findAll();
+	public List<MemberVO> getMemberList() throws DataNotFoundedException {
+		Optional<List<MemberVO>> result = repo.findAll();
 		return result.orElseThrow(DataNotFoundedException::new);
 	}
 	
 	public String getMemberListFormedJson() throws DataNotFoundedException{
-		List<Member> codeList = this.getMemberList();
+		List<MemberVO> codeList = this.getMemberList();
 		JsonArray jsonArray = new JsonArray();
 		codeList.stream().map(obj -> obj.makeReturnToJson()).forEach(jsonArray::add);
 		return new Gson().toJson(jsonArray);

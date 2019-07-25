@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.insutil.insnet.memer.model.Member;
+import com.insutil.insnet.memer.model.MemberVO;
 
 @Repository
 public class JdbcMemberRepository implements MemberRepository {
@@ -18,9 +18,9 @@ public class JdbcMemberRepository implements MemberRepository {
 	
 	
 	@Override
-	public Optional<List<Member>> findAll() {
+	public Optional<List<MemberVO>> findAll() {
 		String query = "SELECT id_user as username FROM tn_qa_user";
-		return Optional.ofNullable(jdbcTemplate.query(query, new BeanPropertyRowMapper<Member>(Member.class)));
+		return Optional.ofNullable(jdbcTemplate.query(query, new BeanPropertyRowMapper<MemberVO>(MemberVO.class)));
 	}
 	
 }
