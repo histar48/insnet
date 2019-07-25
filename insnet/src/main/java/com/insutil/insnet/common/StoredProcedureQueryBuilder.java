@@ -10,8 +10,12 @@ import javax.persistence.StoredProcedureQuery;
 
 import com.querydsl.core.types.Path;
 
+/*
+ * StoredProcedure general builder 
+ */
 @SuppressWarnings("rawtypes")
 public class StoredProcedureQueryBuilder {
+	
 	private final String name;
 	private final List<Parameter> inParameters;
 	private final EntityManager entityManager;
